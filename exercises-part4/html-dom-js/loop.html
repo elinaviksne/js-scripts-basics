@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loop</title>
+  </head>
+  <body>
+    <label for="num1">Ievadi pirmo skaitli: </label>
+    <input type="number" id="num1" />
+    <label for="num2">Ievadi otro skaitli: </label>
+    <input type="number" id="num2" />
+    <button id="btn">Submit</button>
+
+    <script>
+      function isNumberNatural(num) {
+        return Number.isInteger(num) && num > 0;
+      }
+
+      const btn = document.getElementById("btn");
+      btn.addEventListener("click", function () {
+        const number1 = Number(document.getElementById("num1").value);
+        const number2 = Number(document.getElementById("num2").value);
+
+        if (!isNumberNatural(number1) || !isNumberNatural(number2)) {
+          alert("Abiem skaitļiem ir jābūt naturāliem!");
+        } else if (number1 > number2) {
+          alert(
+            "Pirmā ievades lauka vērtībai ir jābūt mazākai par otrā lauka vērtību!"
+          );
+        } else {
+          alert("Pareizi ievadīts!");
+          for (let i = number1 + 1; i < number2; i++) {
+            console.log(i);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

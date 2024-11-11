@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Html Dom</title>
+  </head>
+  <body>
+    <input type="text" id="text-input" value="name" />
+    <button id="btn">Send</button>
+    <script>
+      console.log("Elīna");
+
+      const textInput = document.getElementById("text-input");
+      console.log(textInput);
+
+      function printName() {
+        console.log("Elīna");
+      }
+      printName();
+
+      const btn = document
+        .getElementById("btn")
+        .addEventListener("click", printInputValue);
+
+      function printInputValue() {
+        var inputValue = document.getElementById("text-input").value;
+        console.log(inputValue);
+      }
+    </script>
+  </body>
+</html>
