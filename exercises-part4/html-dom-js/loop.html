@@ -6,19 +6,28 @@
     <title>Loop</title>
   </head>
   <body>
-    <label for="num1">Ievadi pirmo skaitli: </label>
-    <input type="number" id="num1" />
-    <label for="num2">Ievadi otro skaitli: </label>
-    <input type="number" id="num2" />
-    <button id="btn">Submit</button>
+    <label for="num1">Ievadi pirmo skaitli: </label><br />
+    <input type="number" id="num1" /><br />
+    <label for="num2">Ievadi otro skaitli: </label><br />
+    <input type="number" id="num2" /><br />
+    <button id="btn">Submit</button><br />
+    <h2>Skaitļi starp ievadītajiem skaitļiem:</h2>
+    <br />
+    <p id="paragraph"></p>
 
     <script>
+      const btn = document
+        .getElementById("btn")
+        .addEventListener("click", checkNumbers);
+
+      const p = document.getElementById("paragraph");
+      let content = " ";
+
       function isNumberNatural(num) {
         return Number.isInteger(num) && num > 0;
       }
 
-      const btn = document.getElementById("btn");
-      btn.addEventListener("click", function () {
+      function checkNumbers() {
         const number1 = Number(document.getElementById("num1").value);
         const number2 = Number(document.getElementById("num2").value);
 
@@ -30,11 +39,15 @@
           );
         } else {
           alert("Pareizi ievadīts!");
+          // for (let i = number1 + 1; i < number2; i++) {
+          //   console.log(i);
+          // }
           for (let i = number1 + 1; i < number2; i++) {
-            console.log(i);
+            content += "<li>Skaitlis " + i + "</li><br>";
           }
+          p.innerHTML = `<ul>${content}</ul>`;
         }
-      });
+      }
     </script>
   </body>
 </html>
