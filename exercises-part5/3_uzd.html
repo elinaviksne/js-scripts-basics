@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="attribute" placeholder="Piemēram, model">
+    <button onclick="findAttribute()">Meklēt</button>
+    <p id="result"></p>
+    <script>
+        let car = {
+            mark: 'Volkswagen',
+            model: 'Golf',
+            year: 2020,
+            color: 'sarkans',
+            owner: 'Jānis'
+        };
+
+        function findAttribute() {
+            let attribute = document.getElementById('attribute').value.toLowerCase();
+            let resultPara = document.getElementById('result');
+
+            if (car[attribute]) {
+                resultPara.textContent = `Atribūta "${attribute}" vērtība ir: ${car[attribute]}`;
+            } else {
+                resultPara.textContent = `Atribūts "${attribute}" netika atrasts objektā.`;
+            }
+        }
+    </script>
+</body>
+</html>
